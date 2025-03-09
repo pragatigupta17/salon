@@ -1,0 +1,129 @@
+{% extends 'clientbase.html' %}
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" /><title> 
+    {% block title %} booking form {% endblock %}</title>
+
+     {% block css %}
+     <link rel="stylesheet" type="text/css" href="{% static 'css/clientbase.css' %}" />
+     {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}" /> {% endcomment %}
+    
+</head>
+<style>
+.co {
+    font-family: Arial, sans-serif;
+    background-image: url("{% static 'images/landingpage.jpg' %}");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin:0;
+
+} 
+
+form {
+    background-color:rgba(203, 196, 196, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 500px;
+
+    transition: 0.3s;
+    margin-right:50%;
+}
+
+form:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    background-color:rgba(102, 93, 93, 0.1);
+}
+
+input:focus, textarea:focus {
+    border-color:rgb(229, 232, 237);
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg,rgb(242, 237, 236),rgb(147, 127, 127));
+    border: none;
+    color: rgb(82, 61, 61);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg,rgb(75, 36, 36),rgb(173, 154, 149));
+    box-shadow: 0 5px 15px rgba(81, 59, 53, 0.4);
+    color:rgb(242, 237, 233);
+}
+
+
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+        transform: none;
+    }
+}
+
+</style>
+ {% endblock %}
+<body>
+ {% block content %}
+ <div class="co">
+    
+        <form action="{% url 'booking' %}" method="post" enctype="multipart/form-data">
+         {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"  value={{name}}>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"  value={{email}}>
+            </div>
+            <div class="form-group">
+                <label for="number">Number:</label>
+                <input type="number" id="number" name="number"  value={{number}}>
+            </div>
+            <div class="form-group">
+                <label for="text">Purpose:</label>
+                <textarea type="text" id="text" name="text" value={{text}}></textarea>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" value={{date}}>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" value={{time}}>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

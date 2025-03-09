@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Signup</title>
+    <style>
+       /* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    height: 100vh;
+    background-image: url("{% static 'images/background1.jpg' %}");
+    background-size: cover;  
+    background-position: center;  
+}
+
+
+
+.container {
+    width: 500px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #f4eded;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #f4eded;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color:rgb(109, 90, 83);;
+    background-color: #f4eded;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color:rgb(109, 90, 83);
+    text-align:center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: rgb(109, 90, 83);
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color:rgb(214, 239, 230);
+}
+
+select {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color:rgb(243, 237, 237);
+    color: rgb(109, 90, 83);;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:22px;
+}
+
+button[type="submit"]:hover {
+    background-color:rgb(109, 90, 83);
+    color: #f4eded;
+}
+button .i[type="submit"] :hover{
+    color: #f4eded;
+}
+.footer {
+    text-align: center;
+    color: #666;
+    margin-bottom:20px;
+}
+
+.footer b {
+    color:rgb(109, 90, 83);
+}
+
+/* Media Query for Responsiveness */
+
+@media only screen and (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        margin: 10px auto;
+        padding: 5px;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+    input[type="text"], input[type="password"], select {
+        padding: 5px;
+    }
+    button[type="submit"] {
+        padding: 5px;
+    }
+}
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our Signin Area</h1>
+    <div class="container">
+        <h2>Log in to Dashboard</h2>
+        {{msg}}
+        <form action="{% url 'landingpage' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for ="useremail">User Email:</label>
+            <input type="email"  name="email" placeholder="User email" value={{email}} >
+            <label for ="password">Password:</label>
+            <input type="password" name="password" placeholder="Password">
+        
+            <button type="submit">Login <i class="fa-solid fa-right-to-bracket" style="color: #584646;"></i></button>
+        </form>
+    </div>
+    <div class="footer">
+        All rights reserved by Pragati Gupta Pvt. Ltd.<br>
+        Powered by <b>Django Salon Dashboard</b>
+    </div>
+</body>
+</html>

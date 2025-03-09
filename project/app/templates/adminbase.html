@@ -1,0 +1,112 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/clientbase.css' %}" />
+     {% endblock %}
+</head>
+<body>
+<style>
+
+section#hero {
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: left;
+    text-align: center;
+    color: white;
+    height: 90vh;
+    background-image: url("{% static 'images/first.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+{% comment %} #hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color:rgb(239, 231, 231);
+}
+
+#hero h1 span {
+    color: rgb(229, 123, 56);
+}
+#hero p {
+    font-size:1.5rem;
+    color:rgb(44, 35, 35);
+} {% endcomment %}
+
+</style>
+
+
+    <nav class="navbar">
+        <div class="logo">My Logo</div>
+        
+    
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+    
+        <ul class="nav-links">
+            
+            <li><a href="{% url 'registration' %}">Registration</a></li>
+            <li><a href="{% url 'registration_table' %}">Empoly Data</a></li>
+            <li><a href="{% url 'search' %}">Search</a></li>
+        </ul>
+    </nav>
+{% block content %}
+ <main>
+    <section id ="hero"> 
+        {% comment %} <h1>WELCOME TO<span> SALON</span></h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, nemo id! Maiores odit </br>
+            quo architecto inventore error quod recusandae ratione. </br>
+            Obcaecati natus cum debitis deserunt commodi nemo, amet dolore impedit.</P> {% endcomment %}
+         
+ </section>
+</main> 
+{% endblock %}
+
+<footer class="footer">
+        <div class="footer-container">
+            
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>Experience the best beauty and hair treatments at our luxury salon. We provide top-notch services to make you feel your best.</p>
+            </div>
+
+            
+            <div class="footer-section contact">
+                <h2>Contact Us</h2>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Beauty Street, City, Country</p>
+                <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                <p><i class="fas fa-envelope"></i> info@salon.com</p>
+            </div>
+
+        
+            <div class="footer-section social">
+                <h2>Follow Us</h2>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="footer-bottom">
+            &copy; 2025 Salon | All Rights Reserved
+        </div>
+    </footer>
+</body>
+</html>

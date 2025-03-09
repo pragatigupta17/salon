@@ -1,0 +1,124 @@
+{% load static %}
+{% block css %}
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+
+.form {
+  position: relative;
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: rotateX(0deg) rotateY(0deg);
+  transition: transform 0.5s;
+}
+
+.form:hover {
+  transform: rotateX(5deg) rotateY(5deg);
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.input[type="text"],
+.input[type="email"],
+.input[type="number"],
+.input[type="address"],
+.input[type="Specilastion"],
+.input[type="password"] {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input[type="file"] {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input[type="submit"] {
+  width: 100%;
+  height: 40px;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .update-form {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .update-form {
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .update-form {
+    width: 200px;
+  }
+}
+</style>
+
+ {% endblock %}
+
+{% block content %}
+  {% if data4 %} 
+
+<center>
+<h3>Update Table</h3>
+<form action="{% url 'update' pk=data4.id %}" method="post" enctype="multipart/form-data"> 
+    {% csrf_token %} 
+   <label for="name">Name:</label>
+   <input type="text" name="name" value="{{data4.name}}"><br>
+   <label for="email">Email:</label>
+   <input type="email" name="email" value="{{data4.email}}" readonly><br>
+   <label for="number">Number:</label>
+   <input type="number" name="phone" value="{{data4.phone}}"><br>
+   <label for="address">Address:</label>
+   <input type="address" name="address" value="{{data4.address}}"><br>
+   <label for="Specilastion">Specisation:</label>
+   <input type="Specilastion" name="Specilastion" value="{{data4.Specilastion}}"><br>
+    <label for="image">Image:</label>
+   <input type="file"name="image" value="{{data4.image}}"accept=".jpeg, .png,.avif"><br>
+    <label for="password">Password:</label>
+   <input type="password" name="password" value="{{data4.password}}"><br>
+   <input type="submit" value="Update">
+ </form>
+</center>
+ {% endif %}   
+ {% endblock %}

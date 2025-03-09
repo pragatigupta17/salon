@@ -1,0 +1,107 @@
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+ {% block css %}
+       <link rel="stylesheet" type="text/css" href="{% static 'css/clientbase.css' %}" />
+     {% endblock %}
+   <title>{% block title %}Salon Website{% endblock %}</title>
+   </head>
+   <style>
+   
+section#base {
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: left;
+    text-align: center;
+    color: white;
+    height: 90vh;
+    background-image: url("{% static 'images/women.avif' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+h1{
+  color:rgb(171, 9, 63) ;
+  font-size:40px;
+  text-align:top;
+   margin-bottom: 1rem;
+}
+
+   </style>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">My Logo</div>
+        
+    
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+    
+        <ul class="nav-links">
+      
+            <li><a href="{% url 'appoiment' %}">Appoiment</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'review_data' %}">Reviews</a></li>
+           
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    
+       {% block content %}
+       <main>
+    <section id ="base"> 
+<h1>hello welcome to user Dashboard {{name}} {{image}} <br>
+{{email}} </h1>
+</section>
+</main>
+{% endblock %}
+    
+<!-- footer -->
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h4>About Us</h4>
+          <p>We are a team of passionate and experienced stylists dedicated to providing exceptional service and unparalleled results.</p>
+          <ul class="social-links">
+            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h4>Contact Us</h4>
+          <p>
+            <i class="fa fa-map-marker"></i> 123 Main St, Anytown, USA 12345
+            <br>
+            <i class="fa fa-phone"></i> 555-555-5555
+            <br>
+            <i class="fa fa-envelope"></i> <a href="mailto:info@salon.com">info@salon.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="copyright">&copy; 2023 Salon Name. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
