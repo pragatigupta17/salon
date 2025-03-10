@@ -104,7 +104,7 @@ def edit(request,pk):
          r = request.POST.get('phone')
          s = request.POST.get('address')
          t = request.POST.get('Specilastion')
-         u = request.POST.get('image')
+         u = request.FILES.get('image')
          
          print(u)
          v = request.POST.get('password')

@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,9 +58,12 @@ section#hero {
     
         <ul class="nav-links">
             
-            <li><a href="{% url 'registration' %}">Registration</a></li>
+            <li><a href="{% url 'registration' %}">Add New Employee</a></li>
             <li><a href="{% url 'registration_table' %}">Empoly Data</a></li>
             <li><a href="{% url 'search' %}">Search</a></li>
+            
+            <li><a href="{% url 'landingpage' %}">Logout</a></li>
+
         </ul>
     </nav>
 {% block content %}

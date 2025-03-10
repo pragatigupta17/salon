@@ -1,106 +1,162 @@
+{% extends 'adminbase.html' %}
 {% load static %}
-{% block css %}
-<style>
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-}
-
-
-.form {
-  position: relative;
-  width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transform: rotateX(0deg) rotateY(0deg);
-  transition: transform 0.5s;
-}
-
-.form:hover {
-  transform: rotateX(5deg) rotateY(5deg);
-}
-
-.label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.input[type="text"],
-.input[type="email"],
-.input[type="number"],
-.input[type="address"],
-.input[type="Specilastion"],
-.input[type="password"] {
-  width: 100%;
-  height: 40px;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.input[type="file"] {
-  width: 100%;
-  height: 40px;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.input[type="submit"] {
-  width: 100%;
-  height: 40px;
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.input[type="submit"]:hover {
-  background-color: #3e8e41;
-}
-
-
-@media only screen and (max-width: 768px) {
-  .update-form {
-    width: 300px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .update-form {
-    width: 250px;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .update-form {
-    width: 200px;
-  }
-}
-</style>
-
- {% endblock %}
-
 {% block content %}
+{% block css %}
+ <link rel="stylesheet" type="text/css" href="{% static 'css/clientbase.css' %}" />
+<style>
+.body{
+     font-family: Arial, sans-serif;
+    background-image: url("{% static 'images/landingpage.jpg' %}");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin:0;
+
+}
+
+form {
+    background-color:rgba(203, 196, 196, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    height:70%;
+    transition: 0.3s;
+    margin-right:50%;
+}
+
+form:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    background-color:rgba(102, 93, 93, 0.1);
+}
+
+input:focus, textarea:focus {
+    border-color:rgb(229, 232, 237);
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+     background-color:rgba(102, 93, 93, 0.1);
+   box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    appearance: none;
+    
+}
+
+select:focus {
+    border-color:rgb(241, 238, 238);
+    box-shadow: 0px 5px 15px rgba(128, 110, 110, 0.3);
+    transform: scale(1.02);
+}
+
+
+@media (max-width: 600px) {
+    select {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+button {
+    width: 90%;
+    height:40px;
+    padding: 10px;
+    margin:20px;
+    background: linear-gradient(135deg,rgb(242, 237, 236),rgb(147, 127, 127));
+    border: none;
+    color: rgb(240, 232, 232);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg,rgb(75, 36, 36),rgb(173, 154, 149));
+    box-shadow: 0 5px 15px rgba(81, 59, 53, 0.4);
+    color:rgb(242, 237, 233);
+}
+
+
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+        transform: none;
+    }
+}
+
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    input, select, textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    button {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+
+</style>
+{% endblock %}
+
+
   {% if data4 %} 
 
 <center>
-<h3>Update Table</h3>
+<div class="body">
+
 <form action="{% url 'update' pk=data4.id %}" method="post" enctype="multipart/form-data"> 
     {% csrf_token %} 
    <label for="name">Name:</label>
@@ -113,11 +169,11 @@ body {
    <input type="address" name="address" value="{{data4.address}}"><br>
    <label for="Specilastion">Specisation:</label>
    <input type="Specilastion" name="Specilastion" value="{{data4.Specilastion}}"><br>
-    <label for="image">Image:</label>
-   <input type="file"name="image" value="{{data4.image}}"accept=".jpeg, .png,.avif"><br>
+   <label for="image">Image:</label>
+   <input type="file" name="image" value="{{data4.image}}" accept=".jpeg, .png,.avif "><br>
     <label for="password">Password:</label>
    <input type="password" name="password" value="{{data4.password}}"><br>
-   <input type="submit" value="Update">
+   <button type="submit" value="Update" a href="{% url 'registration_table' %}"> Submit </button>
  </form>
 </center>
  {% endif %}   
